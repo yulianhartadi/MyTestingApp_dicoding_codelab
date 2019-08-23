@@ -22,6 +22,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private ArrayList<String> names;
 
     ImageView imgPreview;
+    private DelayAsync delayAsync;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -61,11 +62,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 e.printStackTrace();
             }*/
 
+            delayAsync = new DelayAsync();
+            delayAsync.execute();
 
         }
     }
 
-    private static class delayAsync extends AsyncTask<Void, Void, Void> {
+    private static class DelayAsync extends AsyncTask<Void, Void, Void> {
         @Override
         protected Void doInBackground(Void... voids) {
             try {
@@ -92,8 +95,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        if (delayAsync != null){
-            if (delayAsync.getStatus().equals(AsyncTask.Status.RUNNING)){
+        if (delayAsync != null) {
+            if (delayAsync.getStatus().equals(AsyncTask.Status.RUNNING)) {
                 delayAsync.cancel(true);
             }
         }
