@@ -18,6 +18,12 @@
         android:layout_below="@+id/tv_text"
         android:text="@string/set_value" />
 
+    <ImageView
+        android:id="@+id/img_preview"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/btn_set_value" />
+
     <TextView
         android:id="@+id/tv_text"
         android:layout_width="wrap_content"
